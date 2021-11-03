@@ -1,20 +1,19 @@
 <?php
 
+namespace MVC;
+
 class Router
 {
-
-    static public function parse($url, $request)
+    public static function parse($url, $request)
     {
         $url = trim($url);
-
-        if ($url == "/mvc/")
-        {
+        // var_dump($url);
+        // die;
+        if ($url == "/mvc/") {
             $request->controller = "tasks";
             $request->action = "index";
             $request->params = [];
-        }
-        else
-        {
+        } else {
             $explode_url = explode('/', $url);
             $explode_url = array_slice($explode_url, 2);
             $request->controller = $explode_url[0];
@@ -24,4 +23,3 @@ class Router
 
     }
 }
-?>

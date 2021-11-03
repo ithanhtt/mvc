@@ -1,5 +1,8 @@
 <?php
 
+namespace MVC;
+
+
 class Dispatcher
 {
 
@@ -19,11 +22,13 @@ class Dispatcher
     public function loadController()
     {
         $name = $this->request->controller . "Controller";
-        $file = ROOT . 'Controllers/' . $name . '.php';
-        require($file);
-        $controller = new $name();
+        $file = ROOT .'Controllers/' . $name . '.php';
+        $className = 'MVC\Controllers\\'. $name;
+        $controller = new $className();
+        
+
         return $controller;
+
     }
 
 }
-?>

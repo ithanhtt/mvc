@@ -1,10 +1,10 @@
 <?php
 
-namespace MVC\Controllers;
+namespace MVC\src\Controllers;
 
-use MVC\Core\Controller;
-use MVC\Models\TaskModel;
-use MVC\Models\TaskRepository;
+use MVC\src\Core\Controller;
+use MVC\src\Models\TaskModel;
+use MVC\src\Models\TaskRepository;
 
 class TasksController extends Controller
 {
@@ -44,7 +44,6 @@ class TasksController extends Controller
         extract($_POST);
         $task = new TaskModel();
         $data["task"] = $this->taskRepo->get($id);
-
         if (isset($title)) {
             $task->setId($id);
             $task->setTitle($title);
@@ -54,7 +53,6 @@ class TasksController extends Controller
                 header("Location: " . WEBROOT . "tasks/index");
             }
         }
-
         $this->set($data);
         $this->render("edit");
     }

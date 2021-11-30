@@ -1,14 +1,12 @@
 <?php
 
-namespace MVC;
+namespace MVC\src;
 
 class Router
 {
-    public static function parse($url, $request)
+    public static function parse(string $url,Request $request)
     {
         $url = trim($url);
-        // var_dump($url);
-        // die;
         if ($url == "/mvc/") {
             $request->controller = "tasks";
             $request->action = "index";

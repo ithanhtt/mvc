@@ -3,7 +3,7 @@
 // require ROOT . "Core/Model.php";
 // require ROOT . "Core/Controller.php";
 
-namespace MVC\Config;
+namespace MVC\src\Config;
 
 class Core
 {

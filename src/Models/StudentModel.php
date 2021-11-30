@@ -4,22 +4,23 @@ namespace MVC\src\Models;
 
 use MVC\src\Core\Model;
 
-class TaskModel extends Model
+class StudentModel extends Model
 {
-    protected $title;
+    protected $name;
     protected $id;
-    protected $description;
+    protected $gender;
+    protected $dob;
     protected $created_at;
     protected $updated_at;
 
-    public function getTitle()
+    public function getName()
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle($title)
+    public function setName($name)
     {
-        $this->title = $title;
+        $this->name = $name;
     }
 
     public function getId()
@@ -32,14 +33,24 @@ class TaskModel extends Model
         $this->id = $id;
     }
 
-    public function setDescription($description)
+    public function setGender($gender)
     {
-        $this->description = $description;
+        $this->gender = $gender;
     }
 
-    public function getDescription()
+    public function getGender()
     {
-        return $this->description;
+        return $this->gender;
+    }
+
+    public function getdob()
+    {
+        return $this->dob;
+    }
+
+    public function setdob($dob)
+    {
+        $this->dob = $dob;
     }
 
     public function setCreatedAt($created_at)

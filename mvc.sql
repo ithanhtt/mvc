@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 22, 2019 at 10:48 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.1.19
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 30, 2021 lúc 05:59 PM
+-- Phiên bản máy phục vụ: 10.4.21-MariaDB
+-- Phiên bản PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,40 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mvc`
+-- Cơ sở dữ liệu: `mvc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tasks`
+-- Cấu trúc bảng cho bảng `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `gender` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `dob`, `gender`, `created_at`, `updated_at`) VALUES
+(2, 'Student 1', '0000-00-00', 1, NULL, '2021-09-13 03:39:00'),
+(4, 'Student 2', '2021-11-12', 0, '2021-09-13 03:08:11', '2021-11-30 16:55:00'),
+(6, 'Student 3', '0000-00-00', 0, '2021-09-13 03:14:43', '2021-09-13 03:40:00'),
+(7, 'Student n', '0000-00-00', 0, '2021-09-13 03:25:51', '2021-11-30 16:46:00'),
+(10, 'Thanh Truong', '2021-11-11', 0, '2021-11-30 16:45:50', '2021-11-30 16:55:00'),
+(11, 'Thanh Truong', '2021-12-03', 1, '2021-11-30 16:49:12', '2021-11-30 16:49:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tasks`
 --
 
 CREATE TABLE `tasks` (
@@ -37,33 +63,47 @@ CREATE TABLE `tasks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tasks`
+-- Đang đổ dữ liệu cho bảng `tasks`
 --
 
 INSERT INTO `tasks` (`title`, `description`, `created_at`, `updated_at`, `id`) VALUES
-('task 1', 'this is description for task 1', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1),
+('Task1', 'this is description for task 1', '0000-00-00 00:00:00', '2021-08-31 08:27:56', 1),
 ('task 2', 'des for task 2 eee', '2019-04-08 23:40:13', '2019-04-11 04:12:15', 2),
-('task 3', 'des for task 3', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3);
+('task 3', 'des for task 3', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 3),
+('Task n', 'This is task n 11111', '2021-09-01 08:30:18', '2021-09-10 08:23:57', 14),
+('Task n +1', 'This is task n+41', '2021-09-10 08:50:59', '2021-11-30 10:12:00', 18);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tasks`
+-- Chỉ mục cho bảng `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `tasks`
 --
 ALTER TABLE `tasks`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tasks`
+-- AUTO_INCREMENT cho bảng `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

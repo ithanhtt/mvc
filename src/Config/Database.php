@@ -1,6 +1,6 @@
 <?php
 
-namespace MVC\Config;
+namespace MVC\src\Config;
 
 use PDO;
 
